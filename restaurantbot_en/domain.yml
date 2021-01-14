@@ -1,0 +1,100 @@
+session_config:
+  session_expiration_time: 0
+  carry_over_slots_to_new_session: true
+intents:
+- greeting
+- deny
+- menu
+- contact
+- order
+- nlu_fallback
+- bye
+# - affirm
+entities:
+- name
+- number_people
+- phone_number
+- order_time
+slots:
+  name:
+    type: text
+  number_people:
+    type: text
+  order_time:
+    type: text
+  phone_number:
+    type: text
+responses:
+  utter_greeting:
+  - buttons:
+    - payload: order
+      title: Order
+    - payload: menu
+      title: Menu
+    - payload: contact
+      title: Contact
+    text: Hello! I'm your booking assistant. What can I do for you?
+  utter_goodbye:
+  - text: See you later！
+  - text: Bye bye, I hope you have a nice day！
+  utter_menu:
+  - custom:
+      data:
+      - name: "Chia Pappi"
+        ratings: "5"
+        image: "./static/img/image.jpeg" 
+      - name: "Wongnai"
+        ratings: "4"
+        image: "./static/img/image1.jpeg"
+      - name: "Shrimp soup"
+        ratings: "4.5"
+        image: "./static/img/image2.jpg"
+      - name: "Pasta"
+        ratings: "5"
+        image: "./static/img/image3.jpg"
+      payload: "cardsCarousel"
+      text: "Need more help ?"
+  utter_contact:
+  - text: "This is our restaurant contact information \n https://google.map.com.jp"
+  utter_ask_order_time:
+  - text: Can you tell me the order time？
+  utter_ask_name:
+  - text: Please tell me your name.
+  utter_ask_number_people:
+  - text: You want to order table for how many people?
+  utter_ask_phone_number:
+  - text: Could you give me your phone number.
+  utter_thank_you:
+  - text: "Thank you for your order. Your order information is confirmed: \n Name:\
+      \ {name}, \n People: {number_people}, \n Time: {order_time}, \n Phone number:\
+      \ {phone_number}"
+  utter_ask_helpmore:
+  - buttons:
+    - payload: order
+      title: Order
+    - payload: menu
+      title: Menu
+    - payload: contact
+      title: Contact
+    - payload: no,
+      title: No, thanks!
+    text: Is there anything else I can help ?
+  utter_ask_moreupdates:
+  - text: Is there any information you would like to update?
+  utter_please_rephrase:
+  - text: I'm sorry. Could you please rephrase again?
+
+forms:
+  health_form:
+    name:
+      - type: from_entity
+        entity: name
+    number_people:
+      - type: from_entity
+        entity: number_people
+    order_time:
+      - type: from_entity
+        entity: order_time
+    phone_number:
+      - type: from_entity
+        entity: phone_number
