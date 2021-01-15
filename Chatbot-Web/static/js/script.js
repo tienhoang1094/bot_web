@@ -219,8 +219,7 @@ function setBotResponse(response) {
             for (i = 0; i < response.length; i++) {
                 //check if the response contains "text"
                 if (response[i].hasOwnProperty("text")) {
-                    console.log('fsdf2',response[i]);
-                    var BotResponse = '<img class="botAvatar" src="./static/img/botava.jpg"/><p class="botMsg">' + response[i].text + '</p><div class="clearfix"></div>';
+                    var BotResponse = '<img class="botAvatar" src="./static/img/botava.jpg"/><p class="botMsg" style=white-space:pre-wrap>' + response[i].text + '</p><div class="clearfix"></div>';
                     $(BotResponse).appendTo(".chats").hide().fadeIn(1000);
                 }
 
