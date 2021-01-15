@@ -1,3 +1,4 @@
+version: "2.0"
 session_config:
   session_expiration_time: 0
   carry_over_slots_to_new_session: true
@@ -9,7 +10,6 @@ intents:
 - order
 - nlu_fallback
 - bye
-# - affirm
 entities:
 - name
 - number_people
@@ -18,12 +18,16 @@ entities:
 slots:
   name:
     type: text
+    influence_conversation: true
   number_people:
     type: text
+    influence_conversation: true
   order_time:
     type: text
+    influence_conversation: true
   phone_number:
     type: text
+    influence_conversation: true
 responses:
   utter_greeting:
   - buttons:
@@ -40,22 +44,24 @@ responses:
   utter_menu:
   - custom:
       data:
-      - name: "Chia Pappi"
-        ratings: "5"
-        image: "./static/img/image.jpeg" 
-      - name: "Wongnai"
-        ratings: "4"
-        image: "./static/img/image1.jpeg"
-      - name: "Shrimp soup"
-        ratings: "4.5"
-        image: "./static/img/image2.jpg"
-      - name: "Pasta"
-        ratings: "5"
-        image: "./static/img/image3.jpg"
-      payload: "cardsCarousel"
-      text: "Need more help ?"
+      - image: ./static/img/image.jpeg
+        name: Chia Pappi
+        ratings: '5'
+      - image: ./static/img/image1.jpeg
+        name: Wongnai
+        ratings: '4'
+      - image: ./static/img/image2.jpg
+        name: Shrimp soup
+        ratings: '4.5'
+      - image: ./static/img/image3.jpg
+        name: Pasta
+        ratings: '5'
+      payload: cardsCarousel
+      text: Need more help ?
   utter_contact:
-  - text: "This is our restaurant contact information \n https://google.map.com.jp"
+  - text: |
+        This is our restaurant contact information:
+        <div class="mapouter"><div class="gmap_canvas"><iframe width="92%" height="90%" id="gmap_canvas" src="https://maps.google.com/maps?q=ntq%20solution&t=&z=11&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://codepen.io/123movies/full/OJROyRx"></a><br><style>.mapouter{position:relative;text-align:right;height:90%;width:92%;}</style><style>.gmap_canvas {overflow:hidden;background:none!important;height:90%;width:92%;}</style></div></div>
   utter_ask_order_time:
   - text: Can you tell me the order time？
   utter_ask_name:
@@ -65,9 +71,8 @@ responses:
   utter_ask_phone_number:
   - text: Could you give me your phone number.
   utter_thank_you:
-  - text: "Thank you for your order. Your order information is confirmed: \n Name:\
-      \ {name}, \n People: {number_people}, \n Time: {order_time}, \n Phone number:\
-      \ {phone_number}"
+  - text: "Thank you for your order. Your order information is confirmed: \nName: {name}\
+      \ \nPeople: {number_people}\nTime: {order_time}\nPhone number: {phone_number}\n"
   utter_ask_helpmore:
   - buttons:
     - payload: order
@@ -83,18 +88,17 @@ responses:
   - text: Is there any information you would like to update?
   utter_please_rephrase:
   - text: I'm sorry. Could you please rephrase again?
-
 forms:
   health_form:
     name:
-      - type: from_entity
-        entity: name
+    - entity: name
+      type: from_entity
     number_people:
-      - type: from_entity
-        entity: number_people
+    - entity: number_people
+      type: from_entity
     order_time:
-      - type: from_entity
-        entity: order_time
+    - entity: order_time
+      type: from_entity
     phone_number:
-      - type: from_entity
-        entity: phone_number
+    - entity: phone_number
+      type: from_entity

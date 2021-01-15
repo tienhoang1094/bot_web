@@ -9,6 +9,7 @@ stories:
   - active_loop: health_form
   - active_loop: null
   - action: utter_thank_you
+  - action: utter_ask_helpmore
 - story: menu
   steps:
   - intent: greeting

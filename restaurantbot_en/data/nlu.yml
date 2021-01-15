@@ -2,62 +2,43 @@ version: "2.0"
 nlu:
 - intent: greeting
   examples: |
-    - Good Morning
-    - Good morning
-    - HELLO
     - HEY
     - HI Sara
-    - Hellllooooooo
     - Hello
     - Hello Bot
-    - Hello Rasa
     - Hey bot
     - Hi
-    - Hi Sara
-    - Hi bot
     - Hi man
     - Hi there
     - good evening
-    - good moring
     - good morning
     - greet
     - greetings
     - hello sara
-    - hello]
+    - hello
     - hey
     - hey bot
-    - hey dude
-    - hey hey
     - hey let's talk
     - hey there..
-    - hey, let's talk
-    - hey, sara!
+
 - intent: bye
   examples: |
     - Bye
     - Bye bye
-    - bye
     - bye bot
-    - bye bye
     - bye bye bot
     - bye for now
-    - bye!
-    - catch you later
     - farewell
     - good bye
     - good bye rasa bot!
     - good night
     - goodbye
     - ok Bye
-    - ok, bye
     - see u later
     - see ya
     - see you
     - see you . bye
     - take care
-    - then bye
-    - Exit
-    - Close this talk
 # - intent: affirm
 #   examples: |
 #     - Accept
@@ -188,17 +169,12 @@ nlu:
 - intent: deny
   examples: |
     - I don't want to
-    - I don't want to give it to you
-    - I don't want to say
     - I dont want to tell
-    - NO
-    - NO DON"T WANT THIS!
     - Never
     - No
     - No thank you
     - No, not really.
     - No, thank you
-    - No.
     - Nopes
     - decline
     - deny
@@ -207,42 +183,23 @@ nlu:
     - i don't think so
     - i don't want either of those
     - i don't want to
-    - i don't want to give you my email
-    - i dont want to
-    - i dont want to accept :P lol
     - i'm afraid not
     - i'm not sure
     - nah
     - never
     - never mind
-    - no
-    - no :(
     - no I dont want
-    - no and no again
-    - no go
     - no i can't
     - no i don't accept
     - no i dont want to
     - no i won't
     - no sir
     - no sorry
-    - no thank s
-    - no thank you
-    - no thanks
-    - no way
-    - no you did it wrong
-    - no!!!!
-    - no, i hate it
-    - no, my frst time
-    - no, thank you
-    - no, thanks
     - nope
-    - nope!
     - nope. i am good
     - not yet
     - sorry, i can't
     - sorry no
-    - I don't agree
 - intent: menu
   examples: |
     - Show me the menu
@@ -285,3 +242,31 @@ nlu:
     - [5h pm](order_time)
     - [9h pm](order_time)
     - [11h am](order_time)
+    - i am [Luci](name)
+    - i am [Diana](name)
+    - iam [Gorge](name)
+    - i am [Hulk](name)
+    - i am [luna](name)
+    - im [Lina](name)
+    - my name is [Lance](name)
+    - i order for [6](number_people)
+    - i order for [7 man](number_people)
+    - i order for [9 people](number_people)
+    - i order for [2 friends](number_people)
+    - [Luci](name)
+    - [Diana](name)
+    - [Gorge](name)
+    - [Troll](name)
+    - [Hercules](name)
+    - [Athena](name)
+    - [Troy](name)
+    - [Zeus](name)
+    - [Achiles](name)
+    - [John](name)
+    - i am [Vi](name)
+    - i am [Hoa](name)
+    - iam [An](name)
+    - i am [The](name)
+    - i am [Lure](name)
+    - i am [tien](name)
+    - iam [ntq](name)
