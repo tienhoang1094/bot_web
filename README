@@ -1,0 +1,3 @@
+rasa run -m models --enable-api --cors "*"
+
+conda env create -f environment.yml
