@@ -6,7 +6,7 @@ from typing import Text
 import os
 import rasa.utils.io
 import rasa.train
-from policy import RestaurantPolicy
+# from policy import RestaurantPolicy
 from rasa.core.agent import Agent
 from rasa.core.policies.memoization import MemoizationPolicy
 from rasa.core.policies.mapping_policy import MappingPolicy
@@ -16,12 +16,14 @@ logger = logging.getLogger(__name__)
 
 async def parse(text: Text, model_path: Text):
     agent = Agent.load(model_path)
+    while 1:
+        sender = input("your id: ")
+        text = input("your input: ")
+        response = await agent.handle_text(text,sender_id=sender)
 
-    response = await agent.handle_text(text)
-
-    logger.info("Text: '{}'".format(text))
-    logger.info("Response:")
-    logger.info(response)
+    # logger.info("Text: '{}'".format(text))
+        logger.info("Response:")
+        logger.info(response)
 
     return response
 
@@ -89,7 +91,7 @@ if __name__ == "__main__":
 
     parse_parser.add_argument(
         "--model",
-        default="models/current",
+        default="models/20210114-145609.tar.gz",
         help="Path to the model directory which contains "
         "sub-folders for core and nlu models.",
     )
